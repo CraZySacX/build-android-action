@@ -9,7 +9,7 @@ RUN mkdir -p /root/.android && touch /root/.android/repositories.cfg
 # Grab the latest commandline tools and unzip it to the proper place in the SDK directory
 RUN cd /opt && \
 mkdir -p ${ANDROID_HOME}/cmdline-tools && \
-wget -q https://dl.google.com/android/repository/commandlinetools-linux-6609375_latest.zip -O commandlinetools-linux.zip && \
+curl -s -o commandlinetools-linux.zip https://dl.google.com/android/repository/commandlinetools-linux-6609375_latest.zip && \
 unzip -q commandlinetools-linux.zip -d ${ANDROID_HOME}/cmdline-tools && \
 rm commandlinetools-linux.zip
 
