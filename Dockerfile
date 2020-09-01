@@ -1,4 +1,4 @@
-FROM openjdk:16-buster
+FROM openjdk:11-buster
 
 # The base directory for the Android SDK
 ENV ANDROID_HOME /opt/android-sdk-linux
