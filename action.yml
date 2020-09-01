@@ -3,6 +3,3 @@ description: 'Build the Android App'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  steps:
-    - run: ./gradlew assembleDebug
-      shell: bash
