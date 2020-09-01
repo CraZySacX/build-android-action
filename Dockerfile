@@ -32,3 +32,9 @@ RUN sdkmanager \
 "extras;google;m2repository" \
 "extras;google;google_play_services" \
 "add-ons;addon-google_apis-google-24"
+
+# Copies your code file from your action repository to the filesystem path `/` of the container
+COPY entrypoint.sh /entrypoint.sh
+
+# Code file to execute when the docker container starts up (`entrypoint.sh`)
+ENTRYPOINT ["/entrypoint.sh"]

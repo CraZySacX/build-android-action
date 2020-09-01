@@ -4,4 +4,4 @@ This actions will build an Android App via ./gradlew assembleDebug
 
 ## Example usage
 
-uses: actions/build-android@v1
+uses: CraZySacX/build-android-action@v1
