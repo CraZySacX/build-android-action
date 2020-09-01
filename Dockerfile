@@ -1,10 +1,7 @@
-FROM openjdk:16
+FROM openjdk:16-buster
 
 # The base directory for the Android SDK
 ENV ANDROID_HOME /opt/android-sdk-linux
-
-# Install unzip for the commandline tools
-RUN apt-get update && apt-get -y install unzip
 
 # For some reason sdkmanager checks this file and issues a warning if it isn't there
 RUN mkdir -p /root/.android && touch /root/.android/repositories.cfg
