@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM openjdk:16
 
 # The base directory for the Android SDK
 ENV ANDROID_HOME /opt/android-sdk-linux
