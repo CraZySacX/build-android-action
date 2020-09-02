@@ -2,4 +2,4 @@ name: 'Build Android App'
 description: 'Build the Android App'
 runs:
   using: 'docker'
-  image: 'docker://allthetyme/allthetyme'
+  image: 'docker://allthetyme/build-android'
