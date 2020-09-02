@@ -28,8 +28,6 @@ RUN sdkmanager \
 "platforms;android-29" \
 "build-tools;30.0.2" \
 "ndk;21.0.6113669" \
-"extras;android;m2repository" \
-"extras;google;m2repository" \
 "extras;google;google_play_services" \
 "add-ons;addon-google_apis-google-24"
 
