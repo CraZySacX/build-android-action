@@ -1,5 +1,19 @@
 name: 'Build Android App'
 description: 'Build the Android App'
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "composite"
+  steps:
+    - run: export ANDROID_SDK_ROOT=/opt/android-sdk-linux
+      shell: bash
+    - run: mkdir -p /root/.android && touch /root/.android/repositories.cfg
+      shell: bash
+    - run: cd /opt && mkdir -p ${ANDROID_SDK_ROOT}/cmdline-tools && curl -s -o commandlinetools-linux.zip https://dl.google.com/android/repository/commandlinetools-linux-6609375_latest.zip && unzip -q commandlinetools-linux.zip -d ${ANDROID_SDK_ROOT}/cmdline-tools && rm commandlinetools-linux.zip
+      shell: bash
+    - run: export PATH=${PATH}:${ANDROID_SDK_ROOT}/platform-tools:${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin:${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin
+      shell: bash
+    - run: sdkmanager "cmdline-tools;latest" "platform-tools" "platforms;android-30" "platforms;android-29" "build-tools;30.0.2" "ndk;21.0.6113669" "extras;android;m2repository" "extras;google;m2repository" "extras;google;google_play_services" "add-ons;addon-google_apis-google-24"
+      shell: bash
+    - run: cd $GITHUB_WORKSPACE
+      shell: bash
+    - run: ./gradlew assembleDebug
+      shell: bash
